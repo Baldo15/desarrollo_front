@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <title>Semana 3</title>
+  <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<body class="box-blue">
+  <div class="box-blue">
+    <h2 style="font-weight: 200;text-align: center;" class="box-blue">AGREGAR PRODUCTOS!</h2>
+    <hr>
+    <form id="tweet-form" class="box-blue">
+      <div class="container d-flex justify-content-around box-blue">
+        <div class="form-group ms-2 box-blue">
+          <label for="nombre" class="box-blue">Nombre</label>
+          <input id="nombre" type="text" class="box-blue form-control mb-3 mt-2" placeholder="Nombre .....">
+        </div>
+        <div class="form-group ms-2 box-blue">
+          <label for="talla" class="box-blue">Talla</label>
+          <input id="talla" type="text" class="box-blue form-control mb-3 mt-2" placeholder="Talla .....">
+        </div>
+        <div class="form-group ms-2 box-blue">
+          <label for="precio" class="box-blue">Precio</label>
+          <input id="precio" type="number" class="box-blue form-control mb-3 mt-2" placeholder="Precio ......">
+        </div>
+        <div class="form-group ms-2 box-blue">
+          <button style="margin-top: 30px;" id="btnAgregar" type="submit" class="btn btn-success">Agregar</button>
+        </div>
+        <br>
+      </div>
+    </form>
+  </div>
+  <br>
+  <div>
+    <table class="table table-striped table-hover table-bordered" >
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Talla</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody id="tabla_agregados">
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
