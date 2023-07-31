@@ -7,6 +7,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const boton = document.querySelector("#btnAgregar");
   const contenedor = document.getElementById("tabla_agregados");
   const allInputs = document.querySelectorAll("input");
+  const botonEliminar = document.querySelector("#btnEliminar");
+  const prodContainer = document.getElementById("tabla_productos");
+  
 
   allInputs.forEach((input) => {
     input.addEventListener("input", () => {
@@ -16,9 +19,11 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         input.classList.remove("is-invalid");
         input.classList.add("is-valid");
+       
       }
     });
   });
+ 
 
   boton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -46,19 +51,22 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     if (valorNombre !== "" && valorPrecio !== "" && valorPrecio !== "") {
-      // como se maneja tablas, en esta se agrega una fila nueva
+     
+      const imageSrc = document.getElementById("opciones").value;
+      const addItem = true;
+      // como se maneja tablas, en esta se ag"rega una fila nueva
       const nuevaFila = contenedor.insertRow();
+      
       // se crean las celdas en la fila nueva
       const celdaNombre = nuevaFila.insertCell(0);
       const celdaTalla = nuevaFila.insertCell(1);
       const celdaPrecio = nuevaFila.insertCell(2);
+      const button = nuevaFila.insertCell(3)
       // agregamos el valor de los campos a cada celda
       celdaNombre.innerHTML = valorNombre;
       celdaTalla.innerHTML = valorTalla;
       celdaPrecio.innerHTML = valorPrecio;
-
-      // con esta se remplaza la fila ya insertada y se pone una nueva
-      // contenedor.innerHTML =  `
+      button.innerHTML = `<button class="btn btn-outline-danger" onclick="myFunction()">X</button>`
       //   <tr>
       //     <td>${valorNombre}</td>
       //     <td>${valorTalla}</td>
@@ -69,6 +77,27 @@ window.addEventListener("DOMContentLoaded", () => {
       talla.value = "";
       precio.value = "";
 
+      const fila = prodContainer.insertRow();
+      const celdaDetalle = fila.insertCell(0)
+      celdaDetalle.innerHTML =`
+            <div class="juntify-content-center" style="padding:20px;">
+            <img src="${imageSrc}" alt="Los Angeles" class="d-block" style="width:30%">
+
+            <p>Nombre: ${valorNombre}<br>
+            Talla: ${valorTalla}<br>
+            Precio: $ ${valorPrecio}</p>
+             </div
+            `;
+
+       const celdaDelete = fila.insertCell(1);
+       celdaDelete.innerHTML = `<button class="btn btn-outline-danger" onclick="myFunction()">X</button>`
     }
   });
+
 });
+
+function myFunction() {
+  var td = event.target.parentNode; 
+  var tr = td.parentNode; // the row to be removed
+  tr.parentNode.removeChild(tr);
+}

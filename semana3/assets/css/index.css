@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  padding: 30px
 }
 
 .tweet-container {
@@ -68,4 +69,16 @@ body {
   cursor: pointer;
   user-select: none;
   opacity: 0.7;
+}
+
+.padd {
+  padding: 10px
+}
+
+.products-container{
+  padding: 1rem 2rem;
+  min-width: 00px;
+  border-radius: 5px;
+  user-select: none;
+  border: 1px solid rgb(211, 211, 211);
 }
